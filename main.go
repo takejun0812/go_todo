@@ -1,41 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
+
+	"studyGo/todo/todo"
 )
-
-type Todo struct {
-	Task string `json:"task"`
-	Done bool   `json:"done"`
-}
-
-const todoFile = "todos.json"
-
-func loadTodos() ([]Todo, error) {
-	var todos []Todo
-
-	data, err := os.ReadFile(todoFile)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return todos, nil
-		}
-		return nil, err
-	}
-
-	err = json.Unmarshal(data, &todos)
-	return todos, err
-}
-
-func saveTodos(todos []Todo) error {
-	data, err := json.MarshalIndent(todos, "", " ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(todoFile, data, 0644)
-}
 
 func main() {
 	args := os.Args
@@ -46,7 +17,7 @@ func main() {
 	}
 
 	command := args[1]
-	todos, err := loadTodos()
+	todos, err := todo.Load()
 	if err != nil {
 		fmt.Println("読み込みエラー:", err)
 		return
@@ -58,7 +29,7 @@ func main() {
 			fmt.Println("ToDoの内容が必要です")
 			return
 		}
-		newTodo := Todo{Task: args[2], Done: false}
+		newTodo := todo.Todo{Task: args[2], Done: false}
 		todos = append(todos, newTodo)
 		fmt.Printf("追加: %s\n", newTodo.Task)
 
@@ -107,7 +78,7 @@ func main() {
 		fmt.Println("不明なコマンドです: add, list, doneが使えます")
 	}
 
-	err = saveTodos(todos)
+	err = todo.Save(todos)
 	if err != nil {
 		fmt.Println("保存エラー:", err)
 	}
