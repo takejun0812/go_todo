@@ -1,9 +1,5 @@
 [
   {
-    "task": "明日京都行く",
-    "done": false
-  },
-  {
     "task": "宿題をする",
     "done": false
   },
@@ -13,6 +9,14 @@
   },
   {
     "task": "宿題をする",
+    "done": false
+  },
+  {
+    "task": "明日休日",
+    "done": false
+  },
+  {
+    "task": "散歩する",
     "done": false
   }
 ]
