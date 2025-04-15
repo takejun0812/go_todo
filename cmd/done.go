@@ -25,7 +25,7 @@ var doneCmd = &cobra.Command{
 
 		todos, _ := todo.Load()
 		if index < 1 || index > len(todos) {
-			fmt.Println("無効んあ番号です")
+			fmt.Println("無効な番号です")
 			return
 		}
 		todos[index-1].Done = true

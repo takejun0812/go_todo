@@ -26,7 +26,11 @@ var listCmd = &cobra.Command{
 			if t.Done {
 				status = "✓"
 			}
-			fmt.Printf("%d: [%s] %s\n", i+1, status, t.Task)
+			dueText := ""
+			if !t.Due.IsZero() {
+				dueText = t.Due.Format("206-01-02")
+			}
+			fmt.Printf("%d: [%s] %s (期限: %s)\n", i+1, status, t.Task, dueText)
 		}
 	},
 }

@@ -1,22 +1,32 @@
 [
   {
     "task": "宿題をする",
-    "done": false
+    "done": false,
+    "due": "0001-01-01T00:00:00Z"
   },
   {
     "task": "運動する",
-    "done": false
+    "done": false,
+    "due": "0001-01-01T00:00:00Z"
   },
   {
     "task": "宿題をする",
-    "done": false
+    "done": false,
+    "due": "0001-01-01T00:00:00Z"
   },
   {
     "task": "明日休日",
-    "done": false
+    "done": false,
+    "due": "0001-01-01T00:00:00Z"
   },
   {
     "task": "散歩する",
-    "done": false
+    "done": false,
+    "due": "0001-01-01T00:00:00Z"
+  },
+  {
+    "task": "Goの勉強",
+    "done": false,
+    "due": "2025-04-15T00:00:00Z"
   }
 ]

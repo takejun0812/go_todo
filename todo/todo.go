@@ -3,11 +3,13 @@ package todo
 import (
 	"encoding/json"
 	"os"
+	"time"
 )
 
 type Todo struct {
-	Task string `json:"task"`
-	Done bool   `json:"done"`
+	Task string    `json:"task"`
+	Done bool      `json:"done"`
+	Due  time.Time `json:"due"`
 }
 
 const todoFile = "todos.json"
